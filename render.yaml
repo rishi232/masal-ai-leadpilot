@@ -7,14 +7,19 @@ services:
     rootDir: backend
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+
     envVars:
       - key: DATABASE_URL
         value: sqlite:///./leadpilot.db
+
       - key: GEMINI_API_KEY
         sync: false
+
       - key: ALLOWED_ORIGINS
         sync: false
-       - key: GEMINI_MODEL
-         value: gemini-3.8-flash
-       - key: GEMINI_FALLBACK_MODEL
-         value: gemini-3.5-flash-lite
+
+      - key: GEMINI_MODEL
+        value: gemini-3.8-flash
+
+      - key: GEMINI_FALLBACK_MODEL
+        value: gemini-3.5-flash-lite
